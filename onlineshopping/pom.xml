@@ -16,6 +16,12 @@
 
 	<dependencies>
 
+		<!-- ADDING BACKEND PROJECT TO FRONTEND -->
+		<dependency>
+			<groupId>in.co</groupId>
+			<artifactId>shoppingbackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<!-- SPRING DEPENDENCY -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
 		<dependency>
@@ -23,7 +29,7 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
+
 		<!-- JSTL -->
 		<dependency>
 			<groupId>jstl</groupId>
