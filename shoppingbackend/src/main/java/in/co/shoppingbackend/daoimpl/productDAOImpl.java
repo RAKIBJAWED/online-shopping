@@ -67,4 +67,39 @@ public class productDAOImpl implements ProductDAO {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Product> listActiveProducts() {
+		String selectActiveProducts="FROM Product WHERE active=:active";
+		return sessionFactory
+				.getCurrentSession()
+					.createQuery(selectActiveProducts)
+						.setParameter("active", true)
+							.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Product> listActiveProductsByCategory(int categoryId) {
+		String selectActiveProductsByCategory="FROM Product WHERE active=:active AND category_id=:category_id";
+		return sessionFactory
+				.getCurrentSession()
+					.createQuery(selectActiveProductsByCategory)
+						.setParameter("active", true)
+						.setParameter("category_id", categoryId)
+							.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Product> getLatestActiveProducts(int count) {
+		return sessionFactory
+				.getCurrentSession()
+					.createQuery("FROM Product WHERE active=:active ORDER BY id")
+						.setParameter("active", true)
+						.setFirstResult(0)
+						.setMaxResults(count)
+							.getResultList();
+	}
+
 }

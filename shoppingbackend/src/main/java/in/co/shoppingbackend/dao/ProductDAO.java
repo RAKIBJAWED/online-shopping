@@ -16,4 +16,11 @@ public interface ProductDAO {
 	public boolean update(Product product);
 	
 	public boolean delete(Product product);
+	
+	//Bussiness method
+	
+	List<Product> listActiveProducts();
+	List<Product> listActiveProductsByCategory(int categoryId);
+	List<Product> getLatestActiveProducts(int count);
+	
 }

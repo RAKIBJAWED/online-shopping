@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import in.co.shoppingbackend.dao.ProductDAO;
-import in.co.shoppingbackend.dto.Product;
 
 public class ProductTestCase {
 
@@ -15,7 +14,7 @@ public class ProductTestCase {
 	
 	private static ProductDAO productDAO;
 	
-	private Product product;
+	//private Product product;
 	
 	@BeforeClass
 	public static void init() {
@@ -26,7 +25,7 @@ public class ProductTestCase {
 	}
 	
 	
-	
+	/*
 	@Test
 	public void testAddProduct() {
 		product=new Product();
@@ -42,7 +41,7 @@ public class ProductTestCase {
 		product.setPurchases(0);
 		product.setViews(0);
 		assertEquals("Successfully Adding the product inside the table",true, productDAO.add(product));
-	}
+	}*/
 	
 	/*@Test
 	public void testsingleProduct() {
@@ -61,12 +60,18 @@ public class ProductTestCase {
 	public void testDeleteProduct() {
 		product=productDAO.get(3);
 		assertEquals("Successfully updated the product in the table",true, productDAO.delete(product));
-	}*/
+	}
 	
-	/*@Test
+	@Test
 	public void testFetchALlProducts() {
-		assertEquals("Successfully fetched all products from the table",5, productDAO.list().size());
-	}*/
+		assertEquals("Successfully fetched all products from the table",8, productDAO.listActiveProducts().size());
+	}
+	*/
+	@Test
+	public void testGetLatestActiveProducts() {
+		assertEquals("Successfully fetched all products from the table",5, productDAO.getLatestActiveProducts(5).size());
+	}
+	
 	
 	
 }

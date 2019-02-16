@@ -1,5 +1,7 @@
 package in.co.shoppingbackend.dto;
 
+import java.util.UUID;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -94,7 +96,9 @@ public class Product {
 	}
 
 
-	
+	public Product() {
+		this.code="PRD"+UUID.randomUUID().toString().substring(26).toUpperCase();
+	}
 	
 	/*
 	 * Private members
