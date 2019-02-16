@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Product {
 	
@@ -113,6 +115,7 @@ public class Product {
 	
 	private String brand;
 	
+	@JsonIgnore
 	private String description;
 	
 	@Column(name="unit_price")
@@ -120,11 +123,14 @@ public class Product {
 	
 	private int quantity;
 	
+	@JsonIgnore
 	@Column(name="is_active")
 	private boolean active;
 	
+	@JsonIgnore
 	private int category_id;
 	
+	@JsonIgnore
 	private int supplier_id;
 	
 	private int purchases;
